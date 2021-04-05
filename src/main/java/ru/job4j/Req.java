@@ -4,6 +4,7 @@ package ru.job4j;
  * Класс для парсинга входящего сообщения
  */
 public class Req {
+    private static String id;
     private final String method;
     private final String mode;
     private final String text;
@@ -26,6 +27,9 @@ public class Req {
             mode = modeAndNameType[1];
             nameType = modeAndNameType[2];
         }
+        if (modeAndNameType.length > 3) {
+            id = modeAndNameType[3];
+        }
         return new Req(method, mode, text, nameType);
     }
 
@@ -43,5 +47,9 @@ public class Req {
 
     public String nameType() {
         return nameType;
+    }
+
+    public String id() {
+        return id;
     }
 }
